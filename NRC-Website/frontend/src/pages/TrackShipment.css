@@ -1,0 +1,108 @@
+.track-search-box {
+  max-width: 600px;
+  margin: 0 auto 36px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--green);
+  border-radius: 4px;
+  padding: 28px;
+  text-align: center;
+}
+.track-search-box h3 { font-size: 18px; margin-bottom: 16px; color: var(--green-dark); }
+.track-input-row { display: flex; gap: 10px; }
+.track-input-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 16px;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  outline: none;
+}
+.track-input-row input:focus { border-color: var(--green); }
+
+.track-results { display: flex; flex-direction: column; gap: 20px; max-width: 820px; margin: 0 auto; }
+
+/* Summary */
+.track-summary {}
+.track-summary-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 18px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--gray-200);
+}
+.track-label { display: block; font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
+.track-bid { font-size: 20px; font-family: var(--font-heading); color: var(--green-dark); }
+.track-info-grid { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 10px 0; }
+.arrow-col { display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--green); font-weight: 700; }
+.ti-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.3px; display: block; }
+.ti-val { font-size: 15px; color: var(--green-dark); font-weight: 500; }
+
+/* Progress */
+.track-progress-card h4 { font-size: 15px; color: var(--green-dark); margin-bottom: 20px; }
+.track-progress { display: flex; align-items: center; }
+.progress-step {
+  display: flex; flex-direction: column; align-items: center;
+  flex: 1; position: relative; gap: 6px;
+}
+.p-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+  color: var(--gray-600);
+  position: relative; z-index: 1;
+  border: 2px solid var(--gray-200);
+}
+.progress-step.done .p-dot { background: var(--green); color: var(--white); border-color: var(--green); }
+.progress-step.current .p-dot { background: var(--gold); color: var(--white); border-color: var(--gold); animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(184,150,12,0.3); } 50% { box-shadow: 0 0 0 6px rgba(184,150,12,0); } }
+.progress-step span { font-size: 12px; color: var(--text-light); text-align: center; }
+.progress-step.done span, .progress-step.current span { color: var(--green-dark); font-weight: 600; }
+.p-line {
+  position: absolute;
+  top: 15px; left: 55%; right: -55%;
+  height: 2px;
+  background: var(--gray-200);
+  z-index: 0;
+}
+.progress-step.done .p-line { background: var(--green); }
+
+/* Timeline */
+.track-timeline-card h4 { font-size: 15px; color: var(--green-dark); margin-bottom: 16px; }
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: flex; gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-100);
+  position: relative;
+}
+.timeline-item:last-child { border-bottom: none; }
+.tl-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gray-400);
+  flex-shrink: 0;
+  margin-top: 4px;
+  border: 2px solid var(--gray-400);
+}
+.timeline-item.latest .tl-dot { background: var(--green); border-color: var(--green); }
+.tl-body { flex: 1; }
+.tl-status { font-size: 15px; font-weight: 600; color: var(--green-dark); }
+.timeline-item.latest .tl-status { color: var(--green); }
+.tl-location { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+.tl-msg { font-size: 14px; color: var(--text); margin-top: 4px; }
+.tl-time { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
+
+/* Placeholder */
+.track-placeholder { text-align: center; padding: 52px 20px; color: var(--text-light); }
+.tp-icon { font-size: 56px; margin-bottom: 16px; }
+.track-placeholder h3 { color: var(--green-dark); margin-bottom: 8px; }
+.track-placeholder p { font-size: 15px; }
+
+@media (max-width: 700px) {
+  .track-info-grid { grid-template-columns: 1fr; }
+  .arrow-col { display: none; }
+  .progress-step span { font-size: 10px; }
+}

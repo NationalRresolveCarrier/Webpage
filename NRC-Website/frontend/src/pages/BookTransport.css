@@ -1,0 +1,90 @@
+.book-layout { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+.book-form-col {}
+.form-section { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 28px; }
+.form-section-title { font-size: 17px; color: var(--green-dark); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-200); }
+
+.step-indicator { display: flex; gap: 0; margin-bottom: 24px; }
+.step-dot { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
+.step-dot::after { content: ''; position: absolute; top: 16px; left: 50%; right: -50%; height: 2px; background: var(--gray-200); z-index: 0; }
+.step-dot:last-child::after { display: none; }
+.dot {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--gray-600);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+  position: relative; z-index: 1;
+  border: 2px solid var(--gray-200);
+}
+.step-dot.active .dot { background: var(--green); color: var(--white); border-color: var(--green); }
+.step-dot.done .dot { background: var(--green-light); color: var(--white); border-color: var(--green-light); }
+.step-dot span { font-size: 12px; margin-top: 5px; color: var(--text-light); text-align: center; }
+.step-dot.active span { color: var(--green); font-weight: 600; }
+
+.btn-row { display: flex; gap: 12px; margin-top: 8px; }
+
+.vehicle-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.vehicle-opt {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.vehicle-opt:hover { border-color: var(--green); background: #f8fdf8; }
+.vehicle-opt.selected { border-color: var(--green); background: #f0faf0; border-width: 2px; }
+.v-name { font-size: 14px; font-weight: 600; color: var(--green-dark); }
+.v-cost { font-size: 12px; color: var(--text-light); }
+
+.cost-estimate {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #fffdf0;
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+.est-price { font-size: 20px; font-weight: 700; color: var(--gold); font-family: var(--font-heading); }
+
+/* Success */
+.booking-success { text-align: center; padding: 32px 24px; background: var(--white); border: 1px solid var(--border); border-radius: 4px; }
+.success-icon { font-size: 48px; margin-bottom: 12px; }
+.booking-success h2 { color: var(--green-dark); margin-bottom: 10px; }
+.booking-id-box {
+  display: flex; flex-direction: column;
+  background: var(--green-dark);
+  color: var(--white);
+  border-radius: 4px;
+  padding: 16px 24px;
+  margin: 20px auto;
+  max-width: 300px;
+}
+.booking-id-box span { font-size: 12px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+.booking-id-box strong { font-size: 24px; font-family: var(--font-heading); color: var(--gold-light); letter-spacing: 1px; }
+.booking-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.booking-details-grid div { background: var(--off-white); border: 1px solid var(--border); border-radius: 3px; padding: 12px; }
+.booking-details-grid span { font-size: 12px; color: var(--text-light); display: block; }
+.booking-details-grid strong { font-size: 18px; color: var(--green-dark); }
+.success-note { font-size: 14px; color: var(--text-light); margin: 12px 0 20px; }
+.success-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Sidebar */
+.sidebar-card { }
+.sidebar-card h4 { font-size: 15px; color: var(--green-dark); margin-bottom: 8px; }
+.sidebar-card p { font-size: 14px; color: var(--text-light); }
+.vehicle-table { width: 100%; font-size: 13px; border-collapse: collapse; margin-top: 8px; }
+.vehicle-table td { padding: 6px 4px; border-bottom: 1px solid var(--gray-200); }
+.vehicle-table tr:last-child td { border-bottom: none; }
+.vehicle-table td:last-child { color: var(--green); font-weight: 600; text-align: right; }
+
+@media (max-width: 900px) {
+  .book-layout { grid-template-columns: 1fr; }
+  .book-sidebar { order: -1; }
+  .vehicle-options { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .vehicle-options { grid-template-columns: 1fr 1fr; }
+  .booking-details-grid { grid-template-columns: 1fr; }
+}
